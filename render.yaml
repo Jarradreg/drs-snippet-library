@@ -1,0 +1,14 @@
+# Render blueprint — https://render.com/docs/blueprint-spec
+#
+# The site is three static HTML pages, so it deploys as a Render Static Site:
+# free, CDN-served, HTTPS on *.onrender.com. No build step, no Node runtime.
+#
+# To apply: push this repo, then in Render choose New > Blueprint and point at it.
+services:
+  - type: web
+    name: drs-snippet-library
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: ./
+    pullRequestPreviewsEnabled: false
+    autoDeployTrigger: commit

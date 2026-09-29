@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Snippet Library — DRS Public Relations</title>
+<meta name="description" content="Copy, edit, and reuse your most useful Discord responses." />
+<meta name="theme-color" content="#f2f0eb" />
+<link rel="icon" type="image/png" href="assets/drs-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-library">
+
+<!-- ── Navigation Header ────────────────────────────────────────── -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"><img src="assets/drs-logo.png" alt="" width="26" height="26" /></span>
+      <span class="logo-word">DRS</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="library.html" aria-current="page">Library</a>
+      <a href="index.html#how">How it works</a>
+    </nav>
+
+    <div class="nav-right">
+      <a class="btn-lilac" href="#library">Open Snippet</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── Masthead ───────────────────────────────────────────────── -->
+  <section class="masthead">
+    <div class="wrap">
+      <h1 class="display-lg">Snippet&nbsp;Library.</h1>
+      <p class="lead">Copy, edit, and reuse your most useful Discord responses.</p>
+    </div>
+  </section>
+
+  <!-- ── Suite — the library ─────────────────────────────────────── -->
+  <section class="suite" id="library">
+    <div class="wrap">
+      <!-- Sequence — one button walks the team through the messages in order -->
+      <section class="seq" id="seqPanel" aria-labelledby="seqTitle">
+        <div class="seq-head">
+          <div class="seq-id">
+            <span class="seq-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9M4 12h6M4 17h4"/><path d="M17 8.5l3 3-3 3"/><path d="M20 11.5H14"/></svg>
+            </span>
+            <div>
+              <h2 class="seq-name" id="seqTitle">Points sequence</h2>
+              <p class="seq-note">The three messages a points request runs through, in order. Copy each one to tick it off.</p>
+            </div>
+          </div>
+          <button class="btn-wine seq-run" id="seqRun" type="button">Run sequence</button>
+        </div>
+        <ol class="seq-steps" id="seqSteps"></ol>
+      </section>
+
+      <!-- Suite Tab Strip -->
+      <div class="tabstrip" id="filters" role="tablist" aria-label="Snippet categories"></div>
+
+      <div class="lib">
+        <!-- list -->
+        <div class="lib-list">
+          <div class="lib-bar">
+            <label class="search" for="search">
+              <span class="search-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+              </span>
+              <input id="search" type="search" placeholder="Search snippets" autocomplete="off" spellcheck="false" aria-label="Search snippets" />
+              <button class="search-clear" id="searchClear" type="button" aria-label="Clear search" hidden>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+              </button>
+            </label>
+            <span class="lib-count"><span class="pulse" aria-hidden="true"></span><span id="listCount"></span></span>
+          </div>
+
+          <div class="cards" id="cards" role="list"></div>
+
+          <p class="empty" id="empty" hidden>
+            <span class="empty-title">No snippets found</span>
+            <span class="empty-sub">Try a different search term, or switch category.</span>
+          </p>
+        </div>
+
+        <!-- editor: Floating Product Card -->
+        <div class="lib-edit" id="editorPane">
+          <div class="editor" id="editor"></div>
+
+          <div class="copy-bar">
+            <p class="copy-note" id="copyNote">Copies the raw Discord Markdown — formatting, emojis and mentions preserved.</p>
+            <button class="btn-wine btn-copy" id="copy" type="button">
+              <span class="btn-ico" id="copyIco" aria-hidden="true"></span>
+              <span id="copyLabel">Copy message</span>
+              <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ── Footer ───────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="wrap">
+    <a class="footer-brand" href="index.html">
+      <span class="footer-mark"><img src="assets/drs-logo.png" alt="" width="40" height="40" /></span>
+      <span class="footer-word">DRS<span>Public Relations</span></span>
+    </a>
+
+    <div class="footer-in">
+      <div class="footer-col">
+        <h3>Products</h3>
+        <a href="library.html?category=Points">Points</a>
+        <a href="library.html?category=Greetings">Greetings</a>
+        <a href="library.html?category=Support">Support</a>
+        <a href="library.html?category=Feedback">Feedback</a>
+        <a href="library.html?category=Errors">Errors</a>
+        <a href="library.html?category=Templates">Templates</a>
+      </div>
+      <div class="footer-col">
+        <h3>Resources</h3>
+        <a data-leave href="https://discord.gg/9XKqgszBMn" rel="noopener noreferrer">Discord</a>
+        <a href="styling.html">Styling guide</a>
+      </div>
+    </div>
+
+    <p class="footer-note">Fan-made public relations website, not affiliated with a real DRS</p>
+  </div>
+</footer>
+
+<!-- Leaving the site — the Discord invite points off-site, so it warns first. -->
+<div class="leave" id="leave" role="dialog" aria-modal="true" aria-labelledby="leaveTitle" aria-describedby="leaveBody" hidden>
+  <div class="leave-backdrop" data-leave-close></div>
+  <div class="leave-card">
+    <h2 class="leave-title" id="leaveTitle">You&rsquo;re leaving this site</h2>
+    <p class="leave-body" id="leaveBody">This opens <b>discord.gg</b>, which is run by Discord &mdash; not by the DRS Public Relations team. You can head back here at any time to finish your request.</p>
+    <div class="leave-actions">
+      <button class="btn-ghost" type="button" data-leave-close>Stay here</button>
+      <a class="btn-wine" id="leaveGo" href="https://discord.gg/9XKqgszBMn" target="_blank" rel="noopener noreferrer">Continue to Discord</a>
+    </div>
+  </div>
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
