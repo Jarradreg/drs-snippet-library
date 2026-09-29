@@ -6,7 +6,7 @@
 # To apply: push this repo, then in Render choose New > Blueprint and point at it.
 services:
   - type: web
-    name: drs-snippet-library
+    name: drs-u103
     runtime: static
     buildCommand: ""
     staticPublishPath: ./
