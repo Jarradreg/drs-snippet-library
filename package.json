@@ -1,0 +1,13 @@
+{
+  "name": "drs-snippet-library",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fan-made public relations website for DRS. Discord snippet library, Points sequence runner and styling guide.",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node serve.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
