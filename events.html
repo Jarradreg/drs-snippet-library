@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Events — Event Assister</title>
+<meta name="description" content="Create an event, add participants, and export a clean, Discord-ready list." />
+<meta name="theme-color" content="#f2f0eb" />
+<link rel="icon" type="image/svg+xml" href="assets/event-assister.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-events">
+
+<!-- ── Navigation Header ────────────────────────────────────────── -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"><img src="assets/event-assister.svg" alt="" width="26" height="26" /></span>
+      <span class="logo-word">Event Assister</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="events.html" aria-current="page">Events</a>
+      <a href="styling.html">Styling guide</a>
+    </nav>
+
+    <div class="nav-right">
+      <a class="btn-lilac" href="#builder">Open Event Assister</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── Masthead ───────────────────────────────────────────────── -->
+  <section class="masthead">
+    <div class="wrap">
+      <h1 class="display-lg">Events.</h1>
+      <p class="lead">Create an event, add participants, copy the list. Everything is saved in this browser.</p>
+    </div>
+  </section>
+
+  <!-- ── Suite — the builder ─────────────────────────────────────── -->
+  <section class="suite" id="builder">
+    <div class="wrap">
+
+      <!-- Event bar — pick, name, and the two switches -->
+      <section class="event-bar" aria-labelledby="eventBarTitle">
+        <h2 class="sr-only" id="eventBarTitle">Event</h2>
+
+        <div class="event-pick">
+          <label class="event-label" for="eventSelect">Event</label>
+          <div class="event-pick-row">
+            <select class="event-select" id="eventSelect" aria-label="Choose an event"></select>
+            <button class="btn-ghost event-mini" id="eventNew" type="button">New</button>
+            <button class="btn-ghost event-mini" id="eventDelete" type="button">Delete</button>
+          </div>
+        </div>
+
+        <div class="event-name">
+          <label class="event-label" for="eventName">Name</label>
+          <input class="event-input" id="eventName" type="text" placeholder="Untitled event" autocomplete="off" spellcheck="false" />
+        </div>
+
+        <div class="event-opts">
+          <label class="switch">
+            <input type="checkbox" id="optPings" />
+            <span class="switch-track" aria-hidden="true"><span class="switch-dot"></span></span>
+            <span class="switch-text">Pings<em>Prints &lt;@Discord&nbsp;ID&gt;</em></span>
+          </label>
+
+          <label class="switch">
+            <input type="checkbox" id="optPlacement" />
+            <span class="switch-track" aria-hidden="true"><span class="switch-dot"></span></span>
+            <span class="switch-text">Placement over points<em>Leads with rank</em></span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Add participant — every field optional -->
+      <section class="add" aria-labelledby="addTitle">
+        <div class="add-head">
+          <h2 class="add-title" id="addTitle">Add participant</h2>
+          <span class="section-hint">Every field is optional</span>
+        </div>
+
+        <div class="add-grid">
+          <label class="add-field">
+            <span>Discord ID</span>
+            <input id="f-discordId" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="000000000000000000" />
+          </label>
+          <label class="add-field">
+            <span>Discord Username</span>
+            <input id="f-discordName" type="text" autocomplete="off" spellcheck="false" placeholder="username" />
+          </label>
+          <label class="add-field">
+            <span>Roblox Username</span>
+            <input id="f-robloxName" type="text" autocomplete="off" spellcheck="false" placeholder="username" />
+          </label>
+          <label class="add-field">
+            <span>Placement</span>
+            <input id="f-placement" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="1" />
+          </label>
+          <label class="add-field">
+            <span>Points</span>
+            <input id="f-points" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="0" />
+          </label>
+          <button class="btn-wine add-btn" id="addBtn" type="button">
+            <span class="btn-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </span>
+            Add
+          </button>
+        </div>
+      </section>
+
+      <!-- Participants + live output -->
+      <div class="es-grid">
+
+        <section class="es-list" aria-labelledby="partsTitle">
+          <div class="es-head">
+            <h2 class="es-title" id="partsTitle">Participants</h2>
+            <span class="tag" id="partCount"></span>
+          </div>
+
+          <div class="phead" id="phead" hidden>
+            <span class="prow-n">#</span>
+            <span>Discord ID</span>
+            <span>Discord Username</span>
+            <span>Roblox Username</span>
+            <span>Placement</span>
+            <span>Points</span>
+            <span></span>
+          </div>
+
+          <div class="plist" id="participants"></div>
+        </section>
+
+        <aside class="es-out" aria-labelledby="outTitle">
+          <div class="es-head">
+            <h2 class="es-title" id="outTitle">Output</h2>
+            <span class="pill" id="copiedPill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
+              Copied
+            </span>
+          </div>
+
+          <div class="out" id="output"></div>
+
+          <div class="copy-bar">
+            <p class="copy-note" id="copyNote"></p>
+            <div class="copy-actions">
+              <button class="btn-ghost btn-export" id="exportBtn" type="button">Export .txt</button>
+              <button class="btn-wine btn-copy" id="copy" type="button">
+                <span class="btn-ico" id="copyIco" aria-hidden="true"></span>
+                <span id="copyLabel">Copy list</span>
+              </button>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ── Footer ───────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="wrap">
+    <a class="footer-brand" href="index.html">
+      <span class="footer-mark"><img src="assets/event-assister.svg" alt="" width="40" height="40" /></span>
+      <span class="footer-word">Event Assister<span>Participant lists</span></span>
+    </a>
+
+    <div class="footer-in">
+      <div class="footer-col">
+        <h3>Product</h3>
+        <a href="events.html">Events</a>
+        <a href="styling.html">Styling guide</a>
+      </div>
+      <div class="footer-col">
+        <h3>Resources</h3>
+        <a data-leave href="https://discord.gg/9XKqgszBMn" rel="noopener noreferrer">Discord</a>
+      </div>
+    </div>
+
+    <p class="footer-note">A small fan-made tool. Your events are saved in this browser &mdash; nothing is uploaded.</p>
+  </div>
+</footer>
+
+<!-- Leaving the site — the Discord invite points off-site, so it warns first. -->
+<div class="leave" id="leave" role="dialog" aria-modal="true" aria-labelledby="leaveTitle" aria-describedby="leaveBody" hidden>
+  <div class="leave-backdrop" data-leave-close></div>
+  <div class="leave-card">
+    <h2 class="leave-title" id="leaveTitle">You&rsquo;re leaving this site</h2>
+    <p class="leave-body" id="leaveBody">This opens <b>discord.gg</b>, which is run by Discord &mdash; not by Event Assister. You can come back here at any time; your events stay saved.</p>
+    <div class="leave-actions">
+      <button class="btn-ghost" type="button" data-leave-close>Stay here</button>
+      <a class="btn-wine" id="leaveGo" href="https://discord.gg/9XKqgszBMn" target="_blank" rel="noopener noreferrer">Continue to Discord</a>
+    </div>
+  </div>
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>

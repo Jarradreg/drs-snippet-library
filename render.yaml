@@ -4,6 +4,11 @@
 # free, CDN-served, HTTPS on *.onrender.com. No build step, no Node runtime.
 #
 # To apply: push this repo, then in Render choose New > Blueprint and point at it.
+#
+# NOTE: `name` below must stay in step with the live Render service name, or a
+# blueprint sync will create a SECOND service instead of updating the existing
+# one. The live service is currently `drs-u103`; renaming it in Render's
+# Settings > Name also changes the *.onrender.com subdomain.
 services:
   - type: web
     name: drs-u103

@@ -1,4 +1,4 @@
-/* Static file server for the Snippet Library.
+/* Static file server for Event Assister.
    Usage:  node serve.js [port]
    Then open http://localhost:4173
 

@@ -1,8 +1,8 @@
 {
-  "name": "drs-snippet-library",
+  "name": "event-assister",
   "version": "1.0.0",
   "private": true,
-  "description": "Fan-made public relations website for DRS. Discord snippet library, Points sequence runner and styling guide.",
+  "description": "Event Assister — create an event, add participants, and export a clean Discord-ready list.",
   "license": "UNLICENSED",
   "scripts": {
     "start": "node serve.js"
